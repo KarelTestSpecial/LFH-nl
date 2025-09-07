@@ -1,0 +1,125 @@
+/* Algemene stijlen */
+:root {
+    --primary-bg: #ffffff;
+    --secondary-bg: #f7f7f7;
+    --header-bg: #2c3e50;
+    --text-color: #333333;
+    --accent-color: #3498db;
+    --border-color: #dddddd;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+}
+
+/* Header en Footer */
+header, footer {
+    background-color: var(--header-bg);
+    color: white;
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+footer {
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
+/* Hoofdcontainer */
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Accordeon stijlen */
+.accordion-item {
+    background-color: var(--primary-bg);
+    margin-bottom: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    overflow: hidden; /* Zorgt ervoor dat de border-radius werkt */
+}
+
+.accordion-button {
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 15px 20px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-item:last-child .accordion-button {
+    border-bottom: none;
+}
+
+.accordion-button:hover, .accordion-button.active {
+    background-color: var(--secondary-bg);
+    color: var(--accent-color);
+}
+
+.accordion-button::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.accordion-button.active::after {
+    transform: rotate(45deg);
+}
+
+.accordion-panel {
+    display: none;
+    padding: 15px 20px;
+    background-color: #fafafa; /* Lichte achtergrond voor geopende panelen */
+}
+
+.accordion-panel.is-open {
+    display: block;
+}
+
+/* Geneste items */
+.accordion-panel > .accordion-item {
+    margin-left: 25px;
+    border-left: 2px solid var(--accent-color);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    main {
+        margin: 1rem auto;
+    }
+
+    .accordion-panel > .accordion-item {
+        margin-left: 15px;
+    }
+}
